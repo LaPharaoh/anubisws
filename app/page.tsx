@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
+import Hero from "@/components/ui/glassmorphism-trust-hero";
 import Services from "./components/Services";
 import Pricing from "./components/Pricing";
 import HowItWorks from "./components/HowItWorks";
