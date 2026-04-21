@@ -1,3 +1,5 @@
+"use client";
+
 const services = [
   {
     icon: (
@@ -8,7 +10,7 @@ const services = [
     ),
     title: "Website Design & Development",
     description:
-      "Custom-designed websites built with modern technology stacks. We create responsive, fast-loading sites that convert visitors into customers. From concept to launch, we handle every detail with precision.",
+      "Custom-designed websites built with modern technology stacks. We create responsive, fast-loading sites that convert visitors into customers.",
     features: [
       "Fully responsive design (mobile-first)",
       "Custom development (React, Next.js)",
@@ -26,7 +28,7 @@ const services = [
     ),
     title: "Web Application Development",
     description:
-      "Powerful web applications built to scale. We develop full-stack solutions that integrate seamlessly with your existing tools and systems. Secure, maintainable, and ready for growth.",
+      "Powerful web applications built to scale. We develop full-stack solutions that integrate seamlessly with your existing tools and systems.",
     features: [
       "Custom web app architecture",
       "API-first design & integrations",
@@ -45,7 +47,7 @@ const services = [
     ),
     title: "SEO Optimization & Maintenance",
     description:
-      "Ongoing SEO strategy designed for long-term visibility and measurable growth. We handle the technical foundation, content optimization, and authority building to keep your site ranking competitively.",
+      "Ongoing SEO strategy designed for long-term visibility and measurable growth. We handle the technical foundation, content optimization, and authority building.",
     features: [
       "Technical SEO audits & implementation",
       "Keyword research & content optimization",
@@ -62,7 +64,7 @@ const services = [
     ),
     title: "Website Maintenance & Support",
     description:
-      "Ongoing maintenance and security monitoring to keep your site fast, secure, and compliant. We handle updates, backups, performance optimization, and emergency support so you can focus on your business.",
+      "Ongoing maintenance and security monitoring to keep your site fast, secure, and compliant. We handle updates, backups, and emergency support.",
     features: [
       "Security monitoring & SSL management",
       "Automatic backups & disaster recovery",
@@ -77,50 +79,62 @@ export default function Services() {
   return (
     <section id="services" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-xs font-medium tracking-widest text-[#C9A961] uppercase mb-3">
+        <div className="text-center mb-16" data-reveal>
+          <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: "#B4654A" }}>
             What We Do
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A0E27] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#2C1810" }}>
             Comprehensive Web Services
           </h2>
-          <p className="text-[#666666] max-w-xl mx-auto">
-            Designed for sustainable growth — from first impression to ongoing
-            performance.
+          <p className="max-w-xl mx-auto" style={{ color: "#759AAB" }}>
+            Designed for sustainable growth — from first impression to ongoing performance.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((s) => (
+          {services.map((s, i) => (
             <div
               key={s.title}
-              className="group p-8 rounded-xl border border-[#E0E0E0] hover:border-[#C9A961] hover:shadow-lg transition-all duration-300 bg-white"
+              data-reveal
+              data-delay={String(i * 100)}
+              className="group p-8 rounded-2xl border transition-all duration-300 bg-white"
+              style={{ borderColor: "#e4cfc4" }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.borderColor = "#B4654A";
+                el.style.transform = "translateY(-4px)";
+                el.style.boxShadow = "0 12px 40px rgba(105,74,56,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.borderColor = "#e4cfc4";
+                el.style.transform = "translateY(0)";
+                el.style.boxShadow = "none";
+              }}
             >
-              <div className="w-12 h-12 rounded-lg bg-[#F8F9FA] flex items-center justify-center text-[#0A0E27] group-hover:bg-[#0A0E27] group-hover:text-[#C9A961] transition-colors duration-300 mb-6">
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-all duration-300"
+                style={{ backgroundColor: "#F9DEC9", color: "#694A38" }}
+              >
                 {s.icon}
               </div>
-              <h3 className="text-xl font-semibold text-[#0A0E27] mb-3">
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "#2C1810" }}>
                 {s.title}
               </h3>
-              <p className="text-[#666666] text-sm leading-relaxed mb-5">
+              <p className="text-sm leading-relaxed mb-5" style={{ color: "#759AAB" }}>
                 {s.description}
               </p>
               <ul className="space-y-2">
                 {s.features.map((f) => (
-                  <li
-                    key={f}
-                    className="flex items-start gap-2 text-sm text-[#666666]"
-                  >
-                    <span className="mt-0.5 w-4 h-4 rounded-full bg-[#F8F9FA] flex items-center justify-center flex-shrink-0">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                      >
+                  <li key={f} className="flex items-start gap-2 text-sm" style={{ color: "#4a3c36" }}>
+                    <span
+                      className="mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: "#F9DEC9" }}
+                    >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                         <path
                           d="M2 5l2 2 4-4"
-                          stroke="#C9A961"
+                          stroke="#B4654A"
                           strokeWidth="1.5"
                           strokeLinecap="round"
                           strokeLinejoin="round"

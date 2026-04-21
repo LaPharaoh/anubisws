@@ -1,3 +1,5 @@
+"use client";
+
 const footerLinks = {
   Services: [
     "Website Design",
@@ -12,20 +14,23 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A0E27] text-white">
+    <footer style={{ backgroundColor: "#694A38" }} className="text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <span className="w-7 h-7 rounded-md bg-[#C9A961] flex items-center justify-center">
+              <span
+                className="w-7 h-7 rounded-md flex items-center justify-center"
+                style={{ backgroundColor: "#B4654A" }}
+              >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M8 1L14 13H2L8 1Z" fill="#0A0E27" />
+                  <path d="M8 1L14 13H2L8 1Z" fill="white" />
                 </svg>
               </span>
               <span className="font-semibold text-white">Anubis Web Services</span>
             </div>
-            <p className="text-white/50 text-sm leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(249,222,201,0.6)" }}>
               Premium web solutions for modern businesses. We build digital
               platforms that drive measurable growth.
             </p>
@@ -61,7 +66,19 @@ export default function Footer() {
                 <button
                   key={s.label}
                   aria-label={s.label}
-                  className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#C9A961] text-white/60 hover:text-[#0A0E27] flex items-center justify-center transition-colors duration-200 cursor-pointer"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 cursor-pointer"
+                  style={{
+                    backgroundColor: "rgba(249,222,201,0.1)",
+                    color: "rgba(249,222,201,0.5)",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = "#B4654A";
+                    e.currentTarget.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = "rgba(249,222,201,0.1)";
+                    e.currentTarget.style.color = "rgba(249,222,201,0.5)";
+                  }}
                 >
                   {s.icon}
                 </button>
@@ -72,7 +89,10 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([group, links]) => (
             <div key={group}>
-              <h4 className="text-xs font-semibold tracking-wider text-white/30 uppercase mb-4">
+              <h4
+                className="text-xs font-bold tracking-wider uppercase mb-4"
+                style={{ color: "rgba(249,222,201,0.35)" }}
+              >
                 {group}
               </h4>
               <ul className="space-y-2.5">
@@ -80,7 +100,10 @@ export default function Footer() {
                   <li key={l}>
                     <a
                       href="#"
-                      className="text-sm text-white/60 hover:text-[#C9A961] transition-colors duration-200"
+                      className="text-sm transition-colors duration-200"
+                      style={{ color: "rgba(249,222,201,0.6)" }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = "#F9DEC9")}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(249,222,201,0.6)")}
                     >
                       {l}
                     </a>
@@ -92,11 +115,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">
+        <div
+          className="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4"
+          style={{ borderColor: "rgba(249,222,201,0.1)" }}
+        >
+          <p className="text-xs" style={{ color: "rgba(249,222,201,0.4)" }}>
             © 2026 Anubis Web Services. All rights reserved.
           </p>
-          <p className="text-xs text-white/30">
+          <p className="text-xs" style={{ color: "rgba(249,222,201,0.3)" }}>
             Built with precision. Designed to convert.
           </p>
         </div>

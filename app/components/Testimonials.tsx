@@ -1,3 +1,5 @@
+"use client";
+
 const testimonials = [
   {
     quote:
@@ -47,7 +49,7 @@ function Stars() {
   return (
     <div className="flex gap-0.5 mb-4">
       {[...Array(5)].map((_, i) => (
-        <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="#C9A961">
+        <svg key={i} width="14" height="14" viewBox="0 0 14 14" fill="#B4654A">
           <path d="M7 1l1.5 4H13l-3.5 2.5 1.3 4.2L7 9.5l-3.8 2.2 1.3-4.2L1 5h4.5z" />
         </svg>
       ))}
@@ -57,39 +59,55 @@ function Stars() {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-[#F8F9FA]">
+    <section id="testimonials" className="py-24" style={{ backgroundColor: "#F9DEC9" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <p className="text-xs font-medium tracking-widest text-[#C9A961] uppercase mb-3">
+        <div className="text-center mb-16" data-reveal>
+          <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: "#B4654A" }}>
             Testimonials
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#0A0E27] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#2C1810" }}>
             Trusted by Businesses Across Industries
           </h2>
-          <p className="text-[#666666] max-w-xl mx-auto">
+          <p className="max-w-xl mx-auto" style={{ color: "#759AAB" }}>
             Our clients see measurable growth. Here&apos;s what they say.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((t) => (
+          {testimonials.map((t, i) => (
             <div
               key={t.name}
-              className="bg-white rounded-xl p-6 border border-[#E0E0E0] hover:shadow-md hover:border-[#C9A961] transition-all duration-300 flex flex-col"
+              data-reveal
+              data-delay={String((i % 3) * 150)}
+              className="rounded-2xl p-6 border flex flex-col transition-all duration-300"
+              style={{ backgroundColor: "white", borderColor: "#e4cfc4" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#B4654A";
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = "0 12px 40px rgba(105,74,56,0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#e4cfc4";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               <Stars />
-              <blockquote className="text-sm text-[#666666] leading-relaxed flex-1 mb-6">
+              <blockquote className="text-sm leading-relaxed flex-1 mb-6" style={{ color: "#4a3c36" }}>
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-              <div className="flex items-center gap-3 pt-4 border-t border-[#E0E0E0]">
-                <div className="w-9 h-9 rounded-full bg-[#0A0E27] flex items-center justify-center text-[#C9A961] text-sm font-semibold flex-shrink-0">
+              <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: "#e4cfc4" }}>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
+                  style={{ backgroundColor: "#694A38", color: "#F9DEC9" }}
+                >
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-[#0A0E27]">
+                  <div className="text-sm font-semibold" style={{ color: "#2C1810" }}>
                     {t.name}
                   </div>
-                  <div className="text-xs text-[#666666]">
+                  <div className="text-xs" style={{ color: "#759AAB" }}>
                     {t.company} · {t.location}
                   </div>
                 </div>

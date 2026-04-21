@@ -18,6 +18,9 @@ const budgetRanges = [
   "Not Sure",
 ];
 
+const inputClass =
+  "w-full px-3.5 py-2.5 rounded-xl border text-sm placeholder:text-[#b0a09a] focus:outline-none transition-colors";
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
@@ -48,14 +51,14 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left */}
-          <div>
-            <p className="text-xs font-medium tracking-widest text-[#C9A961] uppercase mb-3">
+          <div data-reveal>
+            <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: "#B4654A" }}>
               Contact
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0A0E27] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: "#2C1810" }}>
               Let&apos;s Work Together
             </h2>
-            <p className="text-[#666666] mb-10 leading-relaxed">
+            <p className="mb-10 leading-relaxed" style={{ color: "#759AAB" }}>
               Have a project in mind? Get in touch for a free consultation.
               We&apos;ll respond within 24 hours.
             </p>
@@ -83,14 +86,17 @@ export default function Contact() {
                 },
               ].map((item) => (
                 <div key={item.label} className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#F8F9FA] flex items-center justify-center text-[#0A0E27] flex-shrink-0">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: "#F9DEC9", color: "#694A38" }}
+                  >
                     {item.icon}
                   </div>
                   <div>
-                    <div className="text-xs text-[#666666] mb-0.5">
+                    <div className="text-xs mb-0.5" style={{ color: "#759AAB" }}>
                       {item.label}
                     </div>
-                    <div className="text-sm font-medium text-[#0A0E27]">
+                    <div className="text-sm font-semibold" style={{ color: "#2C1810" }}>
                       {item.value}
                     </div>
                   </div>
@@ -99,8 +105,11 @@ export default function Contact() {
             </div>
 
             {/* Trust indicators */}
-            <div className="mt-12 p-6 rounded-xl bg-[#F8F9FA] border border-[#E0E0E0]">
-              <div className="text-sm font-medium text-[#0A0E27] mb-4">
+            <div
+              className="mt-12 p-6 rounded-2xl border"
+              style={{ backgroundColor: "#F9DEC9", borderColor: "#e4cfc4" }}
+            >
+              <div className="text-sm font-semibold mb-4" style={{ color: "#2C1810" }}>
                 Why work with us?
               </div>
               <ul className="space-y-2.5">
@@ -110,16 +119,14 @@ export default function Contact() {
                   "Dedicated point of contact throughout",
                   "Results-driven with measurable KPIs",
                 ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm text-[#666666]"
-                  >
+                  <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "#4a3c36" }}>
                     <svg
-                      className="text-[#C9A961] flex-shrink-0"
+                      className="flex-shrink-0"
                       width="14"
                       height="14"
                       viewBox="0 0 14 14"
                       fill="none"
+                      style={{ color: "#B4654A" }}
                     >
                       <path
                         d="M2.5 7l3 3 6-6"
@@ -137,17 +144,19 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white rounded-xl border border-[#E0E0E0] p-8 shadow-sm">
+          <div
+            className="rounded-2xl border p-8 shadow-sm"
+            data-reveal
+            data-delay="200"
+            style={{ backgroundColor: "white", borderColor: "#e4cfc4" }}
+          >
             {submitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-12">
-                <div className="w-16 h-16 rounded-full bg-[#F8F9FA] flex items-center justify-center mb-6">
-                  <svg
-                    width="32"
-                    height="32"
-                    viewBox="0 0 32 32"
-                    fill="none"
-                    className="text-[#C9A961]"
-                  >
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
+                  style={{ backgroundColor: "#F9DEC9" }}
+                >
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style={{ color: "#B4654A" }}>
                     <path
                       d="M6 16l7 7 13-13"
                       stroke="currentColor"
@@ -157,10 +166,10 @@ export default function Contact() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-[#0A0E27] mb-2">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: "#2C1810" }}>
                   Inquiry Received!
                 </h3>
-                <p className="text-[#666666] text-sm">
+                <p className="text-sm" style={{ color: "#759AAB" }}>
                   We&apos;ll be in touch within 24 hours to discuss your project.
                 </p>
               </div>
@@ -168,8 +177,8 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
-                      Full Name <span className="text-[#C9A961]">*</span>
+                    <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
+                      Full Name <span style={{ color: "#B4654A" }}>*</span>
                     </label>
                     <input
                       name="name"
@@ -177,11 +186,14 @@ export default function Contact() {
                       value={form.name}
                       onChange={handleChange}
                       placeholder="John Smith"
-                      className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] placeholder-[#999] focus:outline-none focus:border-[#C9A961] transition-colors"
+                      className={inputClass}
+                      style={{ borderColor: "#e4cfc4", color: "#2C1810" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
+                    <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
                       Company Name
                     </label>
                     <input
@@ -189,15 +201,18 @@ export default function Contact() {
                       value={form.company}
                       onChange={handleChange}
                       placeholder="Acme Corp"
-                      className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] placeholder-[#999] focus:outline-none focus:border-[#C9A961] transition-colors"
+                      className={inputClass}
+                      style={{ borderColor: "#e4cfc4", color: "#2C1810" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
-                      Email <span className="text-[#C9A961]">*</span>
+                    <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
+                      Email <span style={{ color: "#B4654A" }}>*</span>
                     </label>
                     <input
                       name="email"
@@ -206,11 +221,14 @@ export default function Contact() {
                       value={form.email}
                       onChange={handleChange}
                       placeholder="john@company.com"
-                      className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] placeholder-[#999] focus:outline-none focus:border-[#C9A961] transition-colors"
+                      className={inputClass}
+                      style={{ borderColor: "#e4cfc4", color: "#2C1810" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
+                    <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
                       Phone
                     </label>
                     <input
@@ -219,53 +237,58 @@ export default function Contact() {
                       value={form.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] placeholder-[#999] focus:outline-none focus:border-[#C9A961] transition-colors"
+                      className={inputClass}
+                      style={{ borderColor: "#e4cfc4", color: "#2C1810" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
+                    <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
                       Project Type
                     </label>
                     <select
                       name="projectType"
                       value={form.projectType}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C9A961] transition-colors bg-white"
+                      className={inputClass}
+                      style={{ borderColor: "#e4cfc4", color: "#2C1810", backgroundColor: "white" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                     >
                       <option value="">Select type</option>
                       {projectTypes.map((p) => (
-                        <option key={p} value={p}>
-                          {p}
-                        </option>
+                        <option key={p} value={p}>{p}</option>
                       ))}
                     </select>
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
+                    <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
                       Budget Range
                     </label>
                     <select
                       name="budget"
                       value={form.budget}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C9A961] transition-colors bg-white"
+                      className={inputClass}
+                      style={{ borderColor: "#e4cfc4", color: "#2C1810", backgroundColor: "white" }}
+                      onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                      onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                     >
                       <option value="">Select budget</option>
                       {budgetRanges.map((b) => (
-                        <option key={b} value={b}>
-                          {b}
-                        </option>
+                        <option key={b} value={b}>{b}</option>
                       ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-medium text-[#0A0E27] mb-1.5">
-                    Project Description <span className="text-[#C9A961]">*</span>
+                  <label className="block text-xs font-medium mb-1.5" style={{ color: "#2C1810" }}>
+                    Project Description <span style={{ color: "#B4654A" }}>*</span>
                   </label>
                   <textarea
                     name="description"
@@ -274,13 +297,19 @@ export default function Contact() {
                     onChange={handleChange}
                     rows={4}
                     placeholder="Tell us about your project, goals, and timeline..."
-                    className="w-full px-3.5 py-2.5 rounded-md border border-[#E0E0E0] text-sm text-[#1A1A1A] placeholder-[#999] focus:outline-none focus:border-[#C9A961] transition-colors resize-none"
+                    className={`${inputClass} resize-none`}
+                    style={{ borderColor: "#e4cfc4", color: "#2C1810" }}
+                    onFocus={(e) => (e.currentTarget.style.borderColor = "#B4654A")}
+                    onBlur={(e) => (e.currentTarget.style.borderColor = "#e4cfc4")}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-md bg-[#0A0E27] text-white text-sm font-medium hover:bg-[#C9A961] hover:text-[#0A0E27] transition-colors duration-300 cursor-pointer"
+                  className="w-full py-3.5 rounded-full text-white text-sm font-semibold transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_6px_24px_rgba(44,73,127,0.3)] cursor-pointer"
+                  style={{ backgroundColor: "#2C497F" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#B4654A")}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#2C497F")}
                 >
                   Send Inquiry
                 </button>

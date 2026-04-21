@@ -1,19 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-dark: #0A0E27;
-  --color-brand-gold: #C9A961;
-  --color-text-dark: #1A1A1A;
-  --color-text-light: #666666;
-  --color-border: #E0E0E0;
-  --color-bg-light: #F8F9FA;
+  --color-brown:        #694A38;
+  --color-cream:        #F9DEC9;
+  --color-steel:        #759AAB;
+  --color-navy:         #2C497F;
+  --color-terra:        #B4654A;
+  --color-brand-dark:   #694A38;
+  --color-brand-accent: #B4654A;
+  --color-text-dark:    #2C1810;
+  --color-text-body:    #4a3c36;
+  --color-text-muted:   #759AAB;
+  --color-border:       #e4cfc4;
+  --color-bg-cream:     #F9DEC9;
+  --color-bg-warm:      #faf8f5;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #1A1A1A;
+  --background: #faf8f5;
+  --foreground: #2C1810;
 }
 
 body {
@@ -26,22 +33,81 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Scroll Reveal ───────────────────────────────────── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-reveal].revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal][data-delay="100"] { transition-delay: 0.1s; }
+[data-reveal][data-delay="150"] { transition-delay: 0.15s; }
+[data-reveal][data-delay="200"] { transition-delay: 0.2s; }
+[data-reveal][data-delay="250"] { transition-delay: 0.25s; }
+[data-reveal][data-delay="300"] { transition-delay: 0.3s; }
+[data-reveal][data-delay="400"] { transition-delay: 0.4s; }
+[data-reveal][data-delay="500"] { transition-delay: 0.5s; }
+[data-reveal][data-delay="600"] { transition-delay: 0.6s; }
+[data-reveal][data-delay="700"] { transition-delay: 0.7s; }
+[data-reveal][data-delay="800"] { transition-delay: 0.8s; }
+
+/* ── Keyframes ───────────────────────────────────────── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.08; transform: scale(1); }
+  50%       { opacity: 0.2;  transform: scale(1.1); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Utility classes ─────────────────────────────────── */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 7s ease-in-out infinite;
+}
+.hero-fade-in {
+  animation: fadeSlideIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+.hero-marquee {
+  animation: marquee 42s linear infinite;
+}
 
-.animation-delay-100 { animation-delay: 0.1s; }
-.animation-delay-200 { animation-delay: 0.2s; }
-.animation-delay-300 { animation-delay: 0.3s; }
-.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-100  { animation-delay: 0.1s; }
+.animation-delay-200  { animation-delay: 0.2s; }
+.animation-delay-300  { animation-delay: 0.3s; }
+.animation-delay-400  { animation-delay: 0.4s; }
+.animation-delay-2s   { animation-delay: 2s; }
+.animation-delay-4s   { animation-delay: 4s; }
+
+.hero-delay-100 { animation-delay: 0.1s; }
+.hero-delay-200 { animation-delay: 0.2s; }
+.hero-delay-300 { animation-delay: 0.3s; }
+.hero-delay-400 { animation-delay: 0.4s; }
+.hero-delay-500 { animation-delay: 0.5s; }
