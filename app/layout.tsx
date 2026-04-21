@@ -1,11 +1,27 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Lexend_Deca, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import ScrollRevealInit from "./components/ScrollRevealInit";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const lexendDeca = Lexend_Deca({
+  variable: "--font-lexend-deca",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${lexendDeca.variable} ${inter.variable} ${ibmPlexMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <ScrollRevealInit />
         {children}
